@@ -12,7 +12,7 @@ namespace iFakeLocation
         }
 
         private static void EnsureRegistered() {
-#if !NETCOREAPP2_0 && !NETSTANDARD2_0 && !NET45
+#if NET5_0_OR_GREATER
             // Special glue which fixes the DllImport library name and resolves the library handle using
             // existing logic in iMobileDevice-net (have to resort to reflection as its internal)
             NativeLibrary.SetDllImportResolver(Assembly.GetExecutingAssembly(),
