@@ -1,3 +1,10 @@
 .vs/
 iFakeLocation/bin/
 iFakeLocation/obj/
+
+# Build outputs
+build/
+publish/
+*.dmg
+*.zip
+*.tar.gz
