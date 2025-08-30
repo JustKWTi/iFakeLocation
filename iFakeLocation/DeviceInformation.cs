@@ -66,6 +66,14 @@ namespace iFakeLocation {
             {"iPhone14,8", "iPhone 14 Plus"},
             {"iPhone15,2", "iPhone 14 Pro"},
             {"iPhone15,3", "iPhone 14 Pro Max"},
+            {"iPhone15,4", "iPhone 15"},
+            {"iPhone15,5", "iPhone 15 Plus"},
+            {"iPhone16,1", "iPhone 15 Pro"},
+            {"iPhone16,2", "iPhone 15 Pro Max"},
+            {"iPhone17,1", "iPhone 16 Pro"},
+            {"iPhone17,2", "iPhone 16 Pro Max"},
+            {"iPhone17,3", "iPhone 16"},
+            {"iPhone17,4", "iPhone 16 Plus"},
 
             {"iPod1,1", "1st Gen iPod"},
             {"iPod2,1", "2nd Gen iPod"},
@@ -355,7 +363,7 @@ namespace iFakeLocation {
         public void SetLocation(PointLatLng? target) {
             // Use DVT for iOS 17 and above, otherwise use the standard DT service
             if (int.Parse(((string)Properties["ProductVersion"]).Split('.')[0]) >= 17) {
-                throw new NotImplementedException("Setting location is currently not supported for iOS 17 or newer.");
+                new DvtSimulateLocation(this).SetLocation(target);
             }
             else {
                 new DtSimulateLocation(this).SetLocation(target);
